@@ -331,17 +331,18 @@ export default function TravelMVP() {
               </p>
               <p className="text-lg leading-relaxed text-gray-600 mb-8">
                 Hai bisogno di staccare la spina? Noi siamo qui per questo.
-                  Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio.
-                    Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local:
-                    noi ti forniamo la tua dose personale di libertà.
+                <br />
                 Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio.
-                Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local:
-                noi ti forniamo la tua dose personale di libertà.
+                <br />
+                Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local: noi ti forniamo la tua dose personale di libertà.
+                <br />
                 Che sia una spiaggia selvaggia, un borgo dimenticato o un angolo di mondo che nessuno conosce, abbiamo il viaggio giusto per farti perdere la testa (e il telefono).
-                Ogni settimana nuove “dosi”, nuove destinazioni, nuove vie di fuga.
-                Perché la routine è tossica. Ma per fortuna, ci siamo noi.
-
-                Dosi
+                <br />
+                Ogni settimana nuove "dosi", nuove destinazioni, nuove vie di fuga.
+                <br />
+                Perché la routine è tossica.
+                <br />
+                Ma per fortuna, ci siamo noi.
               </p>
               <div className="flex space-x-6">
                 <div className="text-center">
@@ -646,8 +647,7 @@ export default function TravelMVP() {
                 </Button>
                 <Button className="bg-purple-600 hover:bg-purple-700 text-white py-4 rounded-full font-medium">
                   <CalendarPlus className="w-5 h-5 mr-2" />
-                  Aggiungi al Calendario
-                </Button>
+                  Aggiungi al Calendario                </Button>
               </div>
             </motion.div>
           </div>
