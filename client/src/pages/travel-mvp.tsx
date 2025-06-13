@@ -276,7 +276,7 @@ export default function TravelMVP() {
               <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
               <a href="#travel-guides" className="text-gray-600 hover:text-gray-900 transition-colors">Guide</a>
               <a href="#ai-planner" className="text-gray-600 hover:text-gray-900 transition-colors">AI Planner</a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">Chi Sono</a>
+              <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">Chi Siamo</a>
             </nav>
           </div>
           <div className="flex items-center space-x-4">
@@ -325,7 +325,7 @@ export default function TravelMVP() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-light mb-6 text-gray-900">Chi Sono</h2>
+              <h2 className="text-4xl font-light mb-6 text-gray-900">Chi Siamo</h2>
               <p className="text-lg leading-relaxed text-gray-600 mb-6">
                 Sono una fotografa e storyteller che viaggia per il mondo per raccontare storie autentiche. Ho camminato tra le rovine del Perù, attraversato deserti marocchini e condiviso tè con monaci in Giappone.
               </p>
