@@ -330,19 +330,26 @@ export default function TravelMVP() {
                 I tuoi spacciatori ufficiali di evasione!
               </p>
               <p className="text-lg leading-relaxed text-gray-600 mb-8 text-justify">
-                Hai bisogno di staccare la spina? Noi siamo qui per questo. Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio. Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local: noi ti forniamo la tua dose personale di libertà. Che sia una spiaggia selvaggia, un borgo dimenticato o un angolo di mondo che nessuno conosce, abbiamo il viaggio giusto per farti perdere la testa (e il telefono). Ogni settimana nuove "dosi", nuove destinazioni, nuove vie di fuga. Perché la routine è tossica. Ma per fortuna, ci siamo noi.
+                Hai bisogno di staccare la spina? Noi siamo qui per questo.
+                <br />
+                Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio. 
+                <br />
+                Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local: noi ti forniamo la tua dose personale di libertà. Che sia una spiaggia selvaggia, un borgo dimenticato o un angolo di mondo che nessuno conosce, abbiamo il viaggio giusto per farti perdere la testa (e il telefono). <br />
+                Resta alla ricerca di nuove "dosi", nuove destinazioni, nuove vie di fuga. 
+                <br />
+                Perché la routine è tossica. Ma per fortuna, ci siamo noi!
               </p>
               <div className="flex space-x-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">47</div>
+                  <div className="text-3xl font-bold text-gray-900">33</div>
                   <div className="text-sm text-gray-600">Paesi visitati</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">200+</div>
+                  <div className="text-3xl font-bold text-gray-900">10+</div>
                   <div className="text-sm text-gray-600">Itinerari creati</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">5K</div>
+                  <div className="text-3xl font-bold text-gray-900">9K</div>
                   <div className="text-sm text-gray-600">Viaggiatori felici</div>
                 </div>
               </div>
