@@ -327,10 +327,21 @@ export default function TravelMVP() {
             <div>
               <h2 className="text-4xl font-light mb-6 text-gray-900">Chi Siamo</h2>
               <p className="text-lg leading-relaxed text-gray-600 mb-6">
-                Sono una fotografa e storyteller che viaggia per il mondo per raccontare storie autentiche. Ho camminato tra le rovine del Perù, attraversato deserti marocchini e condiviso tè con monaci in Giappone.
+                I tuoi spacciatori ufficiali di evasione!
               </p>
               <p className="text-lg leading-relaxed text-gray-600 mb-8">
-                Ogni viaggio è per me un'occasione per osservare, ascoltare e narrare. Se ami i viaggi lenti, profondi e pieni di emozioni, sei nel posto giusto.
+                Hai bisogno di staccare la spina? Noi siamo qui per questo.
+                  Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio.
+                    Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local:
+                    noi ti forniamo la tua dose personale di libertà.
+                Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio.
+                Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local:
+                noi ti forniamo la tua dose personale di libertà.
+                Che sia una spiaggia selvaggia, un borgo dimenticato o un angolo di mondo che nessuno conosce, abbiamo il viaggio giusto per farti perdere la testa (e il telefono).
+                Ogni settimana nuove “dosi”, nuove destinazioni, nuove vie di fuga.
+                Perché la routine è tossica. Ma per fortuna, ci siamo noi.
+
+                Dosi
               </p>
               <div className="flex space-x-6">
                 <div className="text-center">
