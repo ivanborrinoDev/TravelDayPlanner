@@ -356,7 +356,7 @@ export default function TravelMVP() {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                src="https://www.tiportoanord.it/wp-content/uploads/2022/04/alle-svalbard-si-dorme-su-un-ghiacciaio-con-vista-sugli-orsi-polari-1024x584.webp"
                 alt="Travel photographer" 
                 className="rounded-2xl shadow-xl"
               />
@@ -650,11 +650,11 @@ export default function TravelMVP() {
       )}
 
       {/* Footer */}
-      <footer className="bg-gray-90 text-white py-16">
+      <footer className="text-gray-800 py-16" style={{ backgroundColor: 'rgba(128, 181, 128, 0.5)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-light mb-4">Seguimi sui Social</h3>
-            <p className="text-xl text-gray-300 mb-8">Scopri le mie avventure quotidiane e i dietro le quinte dei miei viaggi</p>
+            <h3 className="text-3xl font-light mb-4">Seguici sui Social</h3>
+            <p className="text-xl text-gray-600 hover:text-gray-900 transition-colors mb-8">Scopri le nostre avventure quotidiane e i dietro le quinte dei nostri viaggi</p>
             <div className="flex justify-center space-x-6">
               <a
                 href="https://www.instagram.com/ivanborrino"
