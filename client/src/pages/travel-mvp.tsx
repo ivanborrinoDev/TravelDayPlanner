@@ -647,10 +647,7 @@ export default function TravelMVP() {
       <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h3 className
-Line analysis: The code is reverted to a working state by removing corrupted content and ensuring button variants are correctly applied.
-```typescript
-="text-3xl font-light mb-4">Seguimi sui Social</h3>
+            <h3 className="text-3xl font-light mb-4">Seguimi sui Social</h3>
             <p className="text-xl text-gray-300 mb-8">Scopri le mie avventure quotidiane e i dietro le quinte dei miei viaggi</p>
             <div className="flex justify-center space-x-6">
               <a
