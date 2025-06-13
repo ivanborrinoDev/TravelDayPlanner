@@ -329,20 +329,8 @@ export default function TravelMVP() {
               <p className="text-lg leading-relaxed text-gray-600 mb-6">
                 I tuoi spacciatori ufficiali di evasione!
               </p>
-              <p className="text-lg leading-relaxed text-gray-600 mb-8">
-                Hai bisogno di staccare la spina? Noi siamo qui per questo.
-                <br />
-                Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio.
-                <br />
-                Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local: noi ti forniamo la tua dose personale di libertà.
-                <br />
-                Che sia una spiaggia selvaggia, un borgo dimenticato o un angolo di mondo che nessuno conosce, abbiamo il viaggio giusto per farti perdere la testa (e il telefono).
-                <br />
-                Ogni settimana nuove "dosi", nuove destinazioni, nuove vie di fuga.
-                <br />
-                Perché la routine è tossica, ma per fortuna, ci siamo noi.
-                <br />
-                Dosi Di Viaggio — Prendine una, scappa via!
+              <p className="text-lg leading-relaxed text-gray-600 mb-8 text-justify">
+                Hai bisogno di staccare la spina? Noi siamo qui per questo. Niente farmaci, niente guru: prescriviamo solo dosi potenti di viaggio. Weekend brevi ma intensi, fughe last minute, scoperte autentiche e local: noi ti forniamo la tua dose personale di libertà. Che sia una spiaggia selvaggia, un borgo dimenticato o un angolo di mondo che nessuno conosce, abbiamo il viaggio giusto per farti perdere la testa (e il telefono). Ogni settimana nuove "dosi", nuove destinazioni, nuove vie di fuga. Perché la routine è tossica. Ma per fortuna, ci siamo noi.
               </p>
               <div className="flex space-x-6">
                 <div className="text-center">
@@ -655,7 +643,7 @@ export default function TravelMVP() {
       )}
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
+      <footer className="bg-gray-90 text-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-light mb-4">Seguimi sui Social</h3>
