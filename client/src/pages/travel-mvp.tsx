@@ -340,9 +340,9 @@ export default function TravelMVP() {
                 <br />
                 Ogni settimana nuove "dosi", nuove destinazioni, nuove vie di fuga.
                 <br />
-                Perché la routine è tossica.
+                Perché la routine è tossica, ma per fortuna, ci siamo noi.
                 <br />
-                Ma per fortuna, ci siamo noi.
+                Dosi Di Viaggio — Prendine una, scappa via!
               </p>
               <div className="flex space-x-6">
                 <div className="text-center">
