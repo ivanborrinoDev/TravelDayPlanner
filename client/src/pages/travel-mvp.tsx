@@ -664,13 +664,12 @@ export default function TravelMVP() {
               >
                 <span className="font-medium">@ivanborrino</span>
               </a>
-              <a
-                href="https://www.instagram.com/dosidiviaggio"
+              <a     href="https://www.instagram.com/rita.sciacca"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 rounded-full hover:from-purple-600 hover:to-blue-700 transition-all transform hover:scale-105 text-white"
               >
-                <span className="font-medium">@dosidiviaggio</span>
+                <span className="font-medium">@rita.sciacca</span>
               </a>
             </div>
           </div>
