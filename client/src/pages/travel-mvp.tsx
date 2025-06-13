@@ -325,9 +325,9 @@ export default function TravelMVP() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-light mb-6 text-gray-900">Chi Siamo</h2>
+              <h2 className="text-4xl font-light mb-6 text-gray-900"><strong>Chi Siamo</strong></h2>
               <p className="text-lg leading-relaxed text-gray-600 mb-6">
-                I tuoi spacciatori ufficiali di evasione!
+                <em>I tuoi spacciatori ufficiali di evasione!</em>
               </p>
               <p className="text-lg leading-relaxed text-gray-600 mb-8 text-justify">
                 Hai bisogno di staccare la spina? Noi siamo qui per questo.
@@ -650,7 +650,7 @@ export default function TravelMVP() {
       )}
 
       {/* Footer */}
-      <footer className="text-gray-800 py-16" style={{ backgroundColor: 'rgba(128, 181, 128, 0.5)' }}>
+      <footer className="text-gray-800 py-16 rounded" style={{ backgroundColor: 'rgba(128, 181, 128, 0.5)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-light mb-4">Seguici sui Social</h3>
