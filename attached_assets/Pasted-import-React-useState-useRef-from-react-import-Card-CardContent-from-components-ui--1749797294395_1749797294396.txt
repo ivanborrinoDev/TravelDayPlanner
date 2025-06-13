@@ -1,0 +1,236 @@
+import React, { useState, useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { UploadCloud, ShoppingCart } from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function TravelMVP() {
+  const [comment, setComment] = useState("");
+  const [cart, setCart] = useState([]);
+  const [previews, setPreviews] = useState([]);
+  const cartIconRef = useRef(null);
+
+  const guides = [
+    {
+      id: 1,
+      title: "Guida India",
+      image:
+        "https://i.natgeofe.com/n/8eba070d-14e5-4d07-8bab-9db774029063/93080_16x9.jpg?w=1200",
+      description:
+        "Un viaggio spirituale e culturale attraverso le meraviglie dell'India: dal Taj Mahal ai templi di Varanasi."
+    },
+    {
+      id: 2,
+      title: "Guida Thailandia",
+      image:
+        "https://img.etimg.com/thumb/msid-121317609,width-640,height-480,imgsize-2906854,resizemode-75/cms-9.jpg",
+      description:
+        "Scopri le spiagge tropicali, i mercati fluttuanti e i templi dorati in un itinerario indimenticabile."
+    },
+    {
+      id: 3,
+      title: "Guida Perù",
+      image:
+        "https://static2-viaggi.corriereobjects.it/wp-content/uploads/2015/06/peru-1080x798.jpg?v=135320",
+      description:
+        "Un'avventura sulle Ande: Cusco, Machu Picchu e la Valle Sacra, tra storia e paesaggi mozzafiato."
+    }
+  ];
+
+  const callVisionAPI = async (base64Image) => {
+    const apiKey = "AIzaSyBjCbFv7HdNFK15va0cPPy6my4SnQTLZNQ";
+    const endpoint = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
+    const body = {
+      requests: [
+        {
+          image: { content: base64Image.split(",")[1] },
+          features: [{ type: "LANDMARK_DETECTION", maxResults: 1 }]
+        }
+      ]
+    };
+
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+
+      const data = await res.json();
+
+      if (data.error) {
+        console.error("Errore Vision API:", data.error.message);
+        return null;
+      }
+
+      const landmark = data.responses?.[0]?.landmarkAnnotations?.[0]?.description;
+      return landmark;
+    } catch (error) {
+      console.error("Errore Vision API:", error.message);
+      return null;
+    }
+  };
+
+  const generateItineraryFromPlaces = (places) => {
+    if (!places.length) return "Non sono stati riconosciuti luoghi nelle foto caricate.";
+    const unique = [...new Set(places)].filter(Boolean);
+    return `Itinerario fotografico AI: un tour attraverso ${unique.join(", ")} con soste ispirate alle tue foto. Pronto a partire?`;
+  };
+
+  const handleUpload = async (e) => {
+    const files = Array.from(e.target.files);
+    const previewsArray = [];
+    const detectedPlaces = [];
+
+    for (const file of files) {
+      const reader = new FileReader();
+      await new Promise((resolve) => {
+        reader.onloadend = async () => {
+          previewsArray.push(reader.result);
+          const place = await callVisionAPI(reader.result);
+          if (place) detectedPlaces.push(place);
+          resolve();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    setPreviews(previewsArray);
+    const itinerary = generateItineraryFromPlaces(detectedPlaces);
+    setComment(itinerary);
+  };
+
+  const addToCart = (item) => {
+    setCart((prev) => [...prev, item]);
+  };
+
+  const handlePurchase = (item) => {
+    addToCart(item);
+    alert(`Stai per acquistare: ${item.title}. Procedi al pagamento...`);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#fefae0] text-[#283618] font-sans relative">
+      {/* Cart Icon */}
+      <div className="absolute top-5 right-5 flex items-center" ref={cartIconRef}>
+        <ShoppingCart className="w-8 h-8 mr-2 text-[#283618]" />
+        <span className="text-sm font-semibold">{cart.length}</span>
+      </div>
+
+      {/* Hero Section */}
+      <section
+        className="bg-cover bg-center h-[80vh] flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"
+        }}
+      >
+        <div className="bg-black bg-opacity-50 p-10 rounded-2xl text-center text-white">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            Esplora il mondo con me
+          </h1>
+          <p className="text-lg md:text-xl">
+            Scopri itinerari, storie e guide di viaggio
+          </p>
+        </div>
+      </section>
+
+      {/* Chi Sono */}
+      <section className="py-12 px-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold mb-6">Chi Sono</h2>
+        <p className="text-lg leading-relaxed">
+          Sono una fotografa e storyteller che viaggia per il mondo per raccontare storie autentiche. Ho camminato tra le rovine del Perù, attraversato deserti marocchini e condiviso tè con monaci in Giappone. Ogni viaggio è per me un'occasione per osservare, ascoltare e narrare. Se ami i viaggi lenti, profondi e pieni di emozioni, sei nel posto giusto.
+        </p>
+      </section>
+
+      {/* Shop */}
+      <section className="py-12 px-6 bg-[#faedcd]">
+        <h2 className="text-3xl font-bold mb-6 text-center">Shop di Viaggio</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {guides.map((guide) => (
+            <Card key={guide.id} className="rounded-2xl shadow-lg">
+              <img
+                src={guide.image}
+                alt={guide.title}
+                className="rounded-t-2xl w-full h-48 object-cover"
+              />
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-xl mb-2">{guide.title}</h3>
+                <p className="text-sm mb-3">{guide.description}</p>
+                <div className="flex gap-2">
+                  <Button className="w-full" onClick={() => addToCart(guide)}>
+                    Aggiungi al carrello
+                  </Button>
+                  <Button
+                    className="flex-1 bg-green-600 hover:bg-green-700"
+                    onClick={() => handlePurchase(guide)}
+                  >
+                    Acquista ora
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Sezione Foto → Commento */}
+      <section className="py-12 px-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold mb-6 text-center">
+          Crea il tuo Itinerario da Foto Multiple
+        </h2>
+        <div className="border-4 border-dashed border-[#dda15e] rounded-2xl p-10 text-center">
+          <UploadCloud className="mx-auto mb-4 w-10 h-10" />
+          <p className="mb-4 text-lg">Carica più foto del tuo viaggio</p>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleUpload}
+            className="mb-4 block mx-auto"
+          />
+          <div className="flex flex-wrap justify-center gap-4 mb-4">
+            {previews.map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt={`Anteprima ${index + 1}`}
+                className="max-h-40 rounded-xl"
+              />
+            ))}
+          </div>
+          {comment && (
+            <motion.div
+              className="bg-[#fefae0] p-6 rounded-xl shadow-md text-left"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <h4 className="font-semibold text-lg mb-2">
+                Ecco il tuo itinerario generato:
+              </h4>
+              <p>{comment}</p>
+            </motion.div>
+          )}
+        </div>
+      </section>
+
+      {/* Instagram Section */}
+      <footer className="bg-[#283618] text-[#fefae0] py-6 text-center">
+        <p className="text-lg font-medium">Seguimi su Instagram:</p>
+        <div className="mt-2 space-x-4">
+          <a
+            href="https://www.instagram.com/ivanborrino"
+            className="hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @ivanborrino
+          </a>
+        </div>
+      </footer>
+    </div>
+  );
+}
