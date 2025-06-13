@@ -271,7 +271,7 @@ export default function TravelMVP() {
       <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <h1 className="text-2xl font-bold text-gray-900">Destination</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Dosi di Viaggio</h1>
             <nav className="hidden md:flex space-x-6">
               <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
               <a href="#travel-guides" className="text-gray-600 hover:text-gray-900 transition-colors">Guide</a>
