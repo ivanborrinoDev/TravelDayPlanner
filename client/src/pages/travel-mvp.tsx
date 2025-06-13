@@ -356,7 +356,7 @@ export default function TravelMVP() {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1494790108755-2616c40e6e25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
                 alt="Travel photographer" 
                 className="rounded-2xl shadow-xl"
               />
