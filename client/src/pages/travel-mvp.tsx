@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { UploadCloud, ShoppingCart, MapPin, Clock, Calendar, Download, Share2, CalendarPlus, Camera, Map, Route } from "lucide-react";
+import { UploadCloud, ShoppingCart, MapPin, Clock, Calendar, Download, Share2, CalendarPlus, Camera, Map, Route, Plus, X, Edit2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Guide {
@@ -185,11 +185,19 @@ export default function TravelMVP() {
     setPreviews(previewsArray);
     
     // Remove duplicates and create DetectedPlace objects with default 3 days
-    const uniquePlaces = [...new Set(detectedPlacesArray)].filter(Boolean);
-    const placesWithDays: DetectedPlace[] = uniquePlaces.map(place => ({
+    const uniquePlaces = Array.from(new Set(detectedPlacesArray)).filter(Boolean);
+    let placesWithDays: DetectedPlace[] = uniquePlaces.map(place => ({
       name: place,
       days: 3
     }));
+    
+    // Se non vengono rilevati luoghi, aggiungi luoghi di esempio per permettere all'utente di iniziare
+    if (placesWithDays.length === 0) {
+      placesWithDays = [
+        { name: "Destinazione 1", days: 3 },
+        { name: "Destinazione 2", days: 2 }
+      ];
+    }
     
     setDetectedPlaces(placesWithDays);
     setIsAnalyzing(false);
@@ -202,6 +210,22 @@ export default function TravelMVP() {
         place.name === placeName ? { ...place, days } : place
       )
     );
+  };
+
+  const updatePlaceName = (oldName: string, newName: string) => {
+    setDetectedPlaces(prev => 
+      prev.map(place => 
+        place.name === oldName ? { ...place, name: newName } : place
+      )
+    );
+  };
+
+  const addNewPlace = () => {
+    setDetectedPlaces(prev => [...prev, { name: `Nuova Destinazione ${prev.length + 1}`, days: 2 }]);
+  };
+
+  const removePlace = (placeName: string) => {
+    setDetectedPlaces(prev => prev.filter(place => place.name !== placeName));
   };
 
   const generateDetailedItinerary = () => {
@@ -365,9 +389,15 @@ export default function TravelMVP() {
                 <div className="space-y-4">
                   {detectedPlaces.map((place, index) => (
                     <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                      <div className="flex items-center space-x-3">
+                      <div className="flex items-center space-x-3 flex-1">
                         <MapPin className="w-5 h-5 text-[hsl(34,58%,62%)]" />
-                        <span className="font-semibold">{place.name}</span>
+                        <Input
+                          type="text"
+                          value={place.name}
+                          onChange={(e) => updatePlaceName(place.name, e.target.value)}
+                          className="font-semibold bg-transparent border-none p-0 focus:bg-white focus:border focus:p-2 transition-all"
+                          placeholder="Nome destinazione"
+                        />
                       </div>
                       <div className="flex items-center space-x-2">
                         <label className="text-sm text-gray-600">Giorni:</label>
@@ -379,13 +409,34 @@ export default function TravelMVP() {
                           onChange={(e) => updatePlaceDays(place.name, parseInt(e.target.value) || 1)}
                           className="day-input w-20 focus:scale-105 focus:shadow-lg focus:shadow-[hsl(34,58%,62%)]/30"
                         />
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => removePlace(place.name)}
+                          className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                        >
+                          <X className="w-4 h-4" />
+                        </Button>
                       </div>
                     </div>
                   ))}
                 </div>
+                
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    onClick={addNewPlace}
+                    variant="outline"
+                    className="flex-1 border-[hsl(34,58%,62%)] text-[hsl(34,58%,62%)] hover:bg-[hsl(34,58%,62%)] hover:text-white"
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    Aggiungi Destinazione
+                  </Button>
+                </div>
+                
                 <Button
                   onClick={generateDetailedItinerary}
                   className="w-full mt-6 bg-[hsl(89,45%,16%)] text-white hover:bg-opacity-90 py-3 text-lg font-semibold"
+                  disabled={detectedPlaces.length === 0}
                 >
                   <Route className="w-5 h-5 mr-2" />
                   Genera Itinerario Dettagliato
