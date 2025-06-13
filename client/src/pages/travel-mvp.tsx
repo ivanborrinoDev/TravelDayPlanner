@@ -123,7 +123,7 @@ export default function TravelMVP() {
   };
 
   const callVisionAPI = async (base64Image: string): Promise<string | null> => {
-    const apiKey = process.env.GOOGLE_VISION_API_KEY || process.env.VITE_GOOGLE_VISION_API_KEY || "AIzaSyBjCbFv7HdNFK15va0cPPy6my4SnQTLZNQ";
+    const apiKey = import.meta.env.VITE_GOOGLE_VISION_API_KEY || "AIzaSyBjCbFv7HdNFK15va0cPPy6my4SnQTLZNQ";
     const endpoint = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
     
     const body = {
