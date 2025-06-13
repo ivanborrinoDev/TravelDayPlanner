@@ -174,7 +174,12 @@ export default function TravelMVP() {
           if (reader.result) {
             previewsArray.push(reader.result as string);
             const place = await callVisionAPI(reader.result as string);
-            if (place) detectedPlacesArray.push(place);
+            if (place) {
+              detectedPlacesArray.push(place);
+              console.log("📍 Luogo rilevato:", place);
+            } else {
+              console.warn("⚠️ Nessun luogo rilevato per una delle foto.");
+            }
           }
           resolve();
         };
@@ -184,15 +189,17 @@ export default function TravelMVP() {
 
     setPreviews(previewsArray);
 
-    // Remove duplicates and create DetectedPlace objects with default 3 days
     const uniquePlaces = Array.from(new Set(detectedPlacesArray)).filter(Boolean);
+    console.log("🗺️ Destinazioni finali:", uniquePlaces);
+
     let placesWithDays: DetectedPlace[] = uniquePlaces.map(place => ({
       name: place,
       days: 3
     }));
 
-    // Se non vengono rilevati luoghi, aggiungi luoghi di esempio per permettere all'utente di iniziare
+    // Fallback se non sono stati riconosciuti luoghi
     if (placesWithDays.length === 0) {
+      alert("Nessuna destinazione riconosciuta nelle foto. Aggiungeremo alcune destinazioni di esempio.");
       placesWithDays = [
         { name: "Destinazione 1", days: 3 },
         { name: "Destinazione 2", days: 2 }
@@ -203,6 +210,7 @@ export default function TravelMVP() {
     setIsAnalyzing(false);
     setShowDayPlanning(true);
   };
+
 
   const updatePlaceDays = (placeName: string, days: number) => {
     setDetectedPlaces(prev => 
